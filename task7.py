@@ -21,14 +21,14 @@ def dldwi(x, wi_index, w_index1, w_index2):
 
 
 def gradient(x, wi_index):
-    return dldwi((x[0]), wi_index, 1, 3) + dldwi((x[1]), wi_index, 0, 2) + dldwi((x[2]), wi_index, 1, 3)
+    return dldwi((x[0]), wi_index, 1, 3) + dldwi((x[1]), wi_index, 0, 2)
 
 
 def stupid_classifier(m0, m1):
     return [m0 / (m0 + m1), m1 / (m0 + m1)]
 
 
-x = [-1, 0, 1]
+x = [-1, 1]
 w = [0, 0, 0, 0]
 h = 0.1
 
@@ -45,8 +45,7 @@ for i in range(epochs):
 
 print("Probability of belonging to classes: \nY=0 \t\t\t\tY=1")
 print(softmax(fn(x[0])[0], fn(x[0])[1]))
-print(softmax(fn(x[1])[1], fn(x[1])[0]))
-print(softmax(fn(x[2])[0], fn(x[2])[1]))
+print(softmax(fn(x[1])[0], fn(x[1])[1]))
 
 print("Stupid classifier results")
-print(stupid_classifier(2, 1))
+print(stupid_classifier(1, 1))
